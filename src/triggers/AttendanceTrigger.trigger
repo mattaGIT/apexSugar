@@ -1,3 +1,4 @@
 trigger AttendanceTrigger on Attendance__c (before insert,after insert,before update,after update,before delete,after delete,after undelete) {
-	new AttendanceHandler();
+	AttendanceHandler handler = new AttendanceHandler();
+	handler.dispatch();  
 }
