@@ -1,9 +1,8 @@
 global virtual class apexSugar {
 	global static map<String,contextCounter> contextsByObject = new map<String,contextCounter>();
 	global static contextCounter context = new contextCounter();
-	global static final Boolean squelchErrors=  true;
-
-	public apexSugar() 
+	global static final Boolean squelchErrors=  false;
+	public void dispatch() 
 	{ 
 	 	try{
 
@@ -43,11 +42,12 @@ global virtual class apexSugar {
 	 		if(!squelchErrors){
 	 			throw e;
 	 		}
-	 	}
+	 	} 
 	}
 	
-	public virtual void afterInsert(){}
+
 	public virtual void beforeInsert(){}
+	public virtual void afterInsert(){}
 	public virtual void afterUpdate(){}
 	public virtual void beforeUpdate(){}
 	public virtual void afterDelete(){}
